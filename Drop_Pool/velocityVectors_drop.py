@@ -1,3 +1,13 @@
+# Author: Vatsal Sanjay
+# vatsalsanjay@gmail.com
+# Physics of Fluids
+
+# This is a python script for post-processing of Gerris data
+
+# It uses gfs2oogl2D to extract information about f1 and f2 -> Oil & water
+# in the present case.
+# It also extracts the data for velocity and plots streamlines
+
 import numpy as np
 import os
 import subprocess as sp
