@@ -1,6 +1,8 @@
 # Author: Vatsal Sanjay
 # vatsalsanjay@gmail.com
 # Physics of Fluids
+# This file imports field data (see gettingfield) and 
+# facets (see gettingfacets)
 
 import numpy as np
 import os
@@ -11,28 +13,6 @@ import matplotlib
 matplotlib.rcParams['text.usetex'] = True
 matplotlib.rcParams['text.latex.preamble'] = [r'\boldmath']
 matplotlib.rcParams['text.latex.unicode'] = True
-
-def gettingCells(filename):
-    print('Getting facets values')
-    exe = ["./getCells", filename]
-    p = sp.Popen(exe, stdout=sp.PIPE, stderr=sp.PIPE)
-    stdout, stderr = p.communicate()
-    temp1 = stderr.decode("utf-8")
-    temp2 = temp1.split("\n")
-    Xtemp = []
-    Ytemp = []
-    for n1 in range(len(temp2)):
-        temp3 = temp2[n1].split(" ")
-        if temp3 == ['']:
-            pass
-        else:
-            Xtemp.append(float(temp3[0]))
-            Ytemp.append(float(temp3[1]))
-    X = np.asarray(Xtemp)
-    Y = np.asarray(Ytemp)
-    print('Got facets values')
-    return X, Y
-
 
 def gettingFacets(filename):
     print('Getting facets values')
